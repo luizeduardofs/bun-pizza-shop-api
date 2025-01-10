@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_USERNAME=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DATABASE=pizza_shop
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/bitnami/postgresql
+
+volumes:
+  postgres_data:
+    driver: local
